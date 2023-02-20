@@ -11,7 +11,7 @@ steps:
   - uses: actions/setup-java@v2 #plugging to setup java
 with:
   distribution: 'zulu'
-  java-version: '11'  
+  java-version: '11'
     - uses: subosito/flutter-actions@v2
       with:
         flutter-version: '3.7.1'
@@ -19,4 +19,20 @@ with:
           - run: flutter test
           - run: flutter build apk
           - run: flutter build appbundle
+          - name: Create github artifact release
+            uses: ncipollo/release-action@v1
+            with:
+              artifacts:
+                "build/app/outputs/apk/release/*:
+                  apk,build/app/outputs/bundle/release/app-release:
+                    aab"
+              token: ${{ secrets.GITHUB_TOKEN }}
+              comit:
+                - name: Upload app bundle artifact
+                  uses: actions/upload-artifact@v2
+                  with:
+                    name: appbundle
+                    path: build/app/outputs/bundle/release/app-release.aab
+
+
 

@@ -1,9 +1,8 @@
-
 name: automate you app with github action
 on:
   push:
     branches:
-      - release
+      - main
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -11,9 +10,8 @@ steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v2 #plugging to setup java
 with:
-distribution: 'zulu'
-java-version: '11'
-  - uses: subosito/flutter-actions@v2
+  distribution: 'zulu'
+  java-version: '11'
       with:
         flutter-version: '3.7.1'
           - run: flutter pub get
@@ -27,7 +25,7 @@ java-version: '11'
                 "build/app/outputs/apk/release/*:
                   apk,build/app/outputs/bundle/release/app-release:
                     aab"
-              token: ${{ secrets.GITHUB_TOKEN }}
+              token: ${{secrets.GITHUB_TOKEN}}
               comit:
                 - name: Upload app bundle artifact
                   uses: actions/upload-artifact@v2

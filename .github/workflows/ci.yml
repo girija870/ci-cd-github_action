@@ -7,7 +7,7 @@ on:
 jobs:
   flutter_test:
     name: Run flutter test and analyze
-    runs_on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkoutv@2
       - uses: actions/setup-java@v2

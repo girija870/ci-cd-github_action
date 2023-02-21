@@ -2,7 +2,7 @@ name: automate you app with github action
 on:
   push:
     branches:
-      - release
+      - main
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest

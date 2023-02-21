@@ -93,6 +93,38 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
+
+
+    //       check-bats-version:
+    //       runs-on: macos-latest
+    // distribution: zulu
+    // java-version: '11'
+    // flutter-version: 3.7.1
+    // steps:
+    // - uses: actions/checkout@v2
+    // - uses: actions/setup-java@v2
+    // - uses: subosito/flutter-action@v2
+    // with:
+    // - run: flutter pub get
+    // - run: flutter test
+    // - run: flutter build apk
+    // - run: flutter build appbundle
+    // - name: Create github artifact release
+    // uses: ncipollo/release-action@v1
+    // with:
+    // artifacts: >-
+    // build/app/outputs/apk/release/*:
+    //     apk,build/app/outputs/bundle/release/app-release: aab
+    //   token: '${{ secrets.GITHUB_TOKEN }}'
+    //   comit:
+    //     - name: Upload app bundle artifact
+    //       uses: actions/upload-artifact@v2
+    //       with:
+    //         name: appbundle
+    //         path: build/app/outputs/bundle/release/app-release.aab
+
+
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
@@ -113,3 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
+

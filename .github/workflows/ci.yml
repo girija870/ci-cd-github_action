@@ -20,6 +20,13 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
+      - run: flutter build apk
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name:ci-release-apk
+          path: build/app/outputs/apk/release/ci-release-apk
+
 
 
 
